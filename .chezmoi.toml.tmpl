@@ -3,3 +3,5 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 [data]
     os = {{ .chezmoi.os | quote }}
     arch = {{ .chezmoi.arch | quote }}
+    name = {{ promptStringOnce . "name" "Git user name" | quote }}
+    email = {{ promptStringOnce . "email" "Git email" | quote }}
