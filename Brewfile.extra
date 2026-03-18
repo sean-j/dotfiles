@@ -34,4 +34,6 @@ brew 'socat'
 
 # Dev Tools
 brew 'mysql'
+brew 'android-studio'
+brew 'zulu@17'
 
