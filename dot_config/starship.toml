@@ -1,0 +1,61 @@
+# Starship Configuration
+# https://starship.rs/config/
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$kotlin\
+$swift\
+$cmd_duration\
+$line_break\
+$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[username]
+show_always = false
+format = "[$user]($style)@"
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style) "
+
+[directory]
+truncation_length = 4
+truncate_to_repo = false
+style = "bold blue"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[kotlin]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[swift]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+style = "yellow"

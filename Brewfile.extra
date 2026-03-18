@@ -1,0 +1,35 @@
+# Brewfile.extra
+# - relies on https://github.com/Homebrew/homebrew-bundle
+#   brew tap Homebrew/bundle
+# - install
+#   brew bundle --file=Brewfile.extra
+cask_args appdir: '/Applications'
+
+# General
+cask 'macvim'
+cask 'xquartz'
+
+# Browsers
+cask 'firefox'
+cask 'opera'
+
+# Image Libraries
+#brew 'libpng'
+#brew 'libtiff'
+#brew 'libjpeg'
+#brew 'webp'
+#brew 'little-cms2'
+brew 'imagemagick'
+
+# Terminal
+brew 'tmux-cssh'
+brew 'watch'
+brew 'pv'
+brew 'nmap'
+brew 'gpg'
+brew 'netcat'
+brew 'socat'
+
+# Dev Tools
+brew 'mysql'
+

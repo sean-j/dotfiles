@@ -1,0 +1,19 @@
+# .bashrc
+# vim:foldmethod=marker
+
+if [ "$PS1" ]; then
+    # bash environments
+        export BASH_ENV=$HOME/.bashrc
+
+    # check the terminal size when bash regains control
+        shopt -s checkwinsize
+
+    # enable history appending instead of overwriting
+        shopt -s histappend
+
+    # User configuration
+        source $HOME/._shrc "$BASH_SOURCE"
+
+    # Starship prompt
+        eval "$(starship init bash)"
+fi

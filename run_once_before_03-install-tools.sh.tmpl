@@ -1,0 +1,53 @@
+#!/bin/bash
+# Install zinit, mise runtimes, fzf, and fonts
+
+# Zinit
+ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+    echo "Installing zinit..."
+    mkdir -p "$(dirname "$ZINIT_HOME")"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+else
+    echo "zinit exists"
+fi
+
+# fzf key bindings & completion
+if which brew >& /dev/null; then
+    "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
+fi
+
+# Node via mise
+if which mise >& /dev/null; then
+    eval "$(mise activate bash)"
+    if ! mise which node >& /dev/null 2>&1; then
+        echo "Installing Node LTS via mise..."
+        mise install node@lts
+        mise use --global node@lts
+    fi
+    if ! mise which python >& /dev/null 2>&1; then
+        echo "Installing Python via mise..."
+        mise install python@latest
+        mise use --global python@latest
+    fi
+fi
+
+# Nerd Fonts (MesloLGM Nerd Font)
+FONTDIR="{{ .chezmoi.sourceDir }}/ext/fonts"
+if [ ! -d "$FONTDIR" ]; then
+    echo "Installing Nerd Fonts (MesloLGM Nerd Font)..."
+    mkdir -p "$FONTDIR"
+    NERD_VERSION="v3.4.0"
+    curl -fsSL -o /tmp/Meslo.zip \
+        "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_VERSION}/Meslo.zip"
+    unzip -jo /tmp/Meslo.zip "MesloLGMNerdFont-*.ttf" -d "$FONTDIR"
+    rm -f /tmp/Meslo.zip
+{{ if eq .chezmoi.os "darwin" }}
+    cp "$FONTDIR"/*.ttf "$HOME/Library/Fonts/"
+{{ else }}
+    mkdir -p "$HOME/.local/share/fonts"
+    cp "$FONTDIR"/*.ttf "$HOME/.local/share/fonts/"
+    fc-cache -f
+{{ end }}
+else
+    echo "Nerd Fonts exist"
+fi

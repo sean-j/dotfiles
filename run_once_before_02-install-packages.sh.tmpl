@@ -1,0 +1,26 @@
+#!/bin/bash
+# Install brew packages
+
+{{ if eq .chezmoi.os "darwin" }}
+if ! which clang >& /dev/null; then
+    echo "Installing Xcode CLI Tools..."
+    xcode-select --install >& /dev/null
+    echo "Please re-run after Xcode CLI Tools installation completes."
+    exit 1
+fi
+{{ end }}
+
+cd "{{ .chezmoi.sourceDir }}"
+
+echo "Installing brew packages..."
+brew bundle --file=Brewfile
+
+{{ if eq .chezmoi.os "darwin" }}
+if [ -f Brewfile.Darwin ]; then
+    brew bundle --file=Brewfile.Darwin
+fi
+{{ else }}
+if [ -f Brewfile.Linux ]; then
+    brew bundle --file=Brewfile.Linux
+fi
+{{ end }}

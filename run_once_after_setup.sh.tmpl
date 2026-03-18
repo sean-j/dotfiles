@@ -1,0 +1,15 @@
+#!/bin/bash
+# Post-apply setup
+
+# Install Neovim plugins
+echo "Installing Neovim plugins..."
+nvim --headless "+Lazy! sync" +qa 2>/dev/null
+
+{{ if eq .chezmoi.os "darwin" }}
+echo ""
+echo "Ghostty config is in ~/.config/ghostty/config"
+echo "[!] Set Ghostty as default terminal:"
+echo "    Open Ghostty > Settings > Make Default Terminal"
+{{ end }}
+
+echo "Done!"

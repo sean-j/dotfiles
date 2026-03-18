@@ -1,0 +1,22 @@
+# Brewfile.Darwin
+# - relies on https://github.com/Homebrew/homebrew-bundle
+#   brew tap Homebrew/bundle
+# - install
+#   brew bundle --file=Brewfile.Darwin
+cask_args appdir: '/Applications'
+
+brew 'coreutils'
+brew 'wget'
+brew 'openssl'
+brew 'trash'
+
+cask 'ghostty'
+cask 'maccy'
+cask 'keepingyouawake'
+cask 'google-chrome'
+cask '1password'
+cask 'rectangle'
+cask 'logi-options+'
+cask 'chatgpt'
+cask 'claude'
+cask 'visual-studio-code'

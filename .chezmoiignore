@@ -1,0 +1,9 @@
+# Non-dotfiles (repo-only files)
+Brewfile
+Brewfile.*
+bootstrap.extra.sh
+install.sh
+LICENSE
+README.md
+.gitignore
+ext/
