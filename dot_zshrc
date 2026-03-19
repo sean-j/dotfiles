@@ -208,5 +208,12 @@
     bindkey '^I' zic-completion
 #}}}
 
+# Android SDK
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+
+# Java (Zulu JDK 17)
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
 # Starship prompt
 eval "$(starship init zsh)"
