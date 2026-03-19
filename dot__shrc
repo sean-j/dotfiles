@@ -432,7 +432,7 @@
 
     # atuin (shell history)
     if check-runnable "atuin"; then
-        eval-cache atuin init $( detect-shell )
+        eval-cache atuin init $( detect-shell ) --disable-up-arrow
     fi
 # Additional Settings }}}
 
