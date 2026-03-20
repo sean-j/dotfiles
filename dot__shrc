@@ -355,9 +355,10 @@
         alias vi='nvim'
         alias vim='nvim'
         alias l='eza'
-        alias ll='eza -la'
         alias la='eza -la'
-        alias lt='eza --tree --level=2'
+        alias ls='eza --icons --git'
+        alias ll='eza --icons --git -algh'
+        alias lt='eza --icons --tree --level=2'
 
     # }}}
 # General Settings }}}
