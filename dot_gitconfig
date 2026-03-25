@@ -12,6 +12,7 @@
     navigate = true
     line-numbers = true
     side-by-side = false
+    syntax-theme = catppuccin-mocha
 
 [merge]
     conflictstyle = zdiff3
