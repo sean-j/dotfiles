@@ -1,6 +1,6 @@
 [user]
-    name = {{ .name | quote }}
-    email = {{ .email | quote }}
+    name = "heamiso-dev"
+    email = "haemiso.dev@gmail.com"
 
 [core]
     pager = delta
@@ -12,7 +12,6 @@
     navigate = true
     line-numbers = true
     side-by-side = false
-    syntax-theme = catppuccin-mocha
 
 [merge]
     conflictstyle = zdiff3
