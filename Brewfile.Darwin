@@ -11,7 +11,7 @@ brew 'openssl'
 brew 'trash'
 
 cask 'ghostty'
-cask 'maccy'
+cask 'cmux'
 cask 'keepingyouawake'
 cask 'google-chrome'
 cask '1password'
